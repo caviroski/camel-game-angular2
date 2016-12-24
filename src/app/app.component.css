@@ -1,0 +1,13 @@
+h1 {
+    margin: 0;
+}
+
+.title {
+    background-color: #7788f3;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.game-container {
+    text-align: center;
+}
