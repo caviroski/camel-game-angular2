@@ -1,17 +1,27 @@
-<div>
+<div class="picker-container">
   <div>
-    <input [(ngModel)]="selectedState" (ngModelChange)="haircolorSelected($event)" type="range" min="14" max="70" />
+    <label>Age</label>
+    <span [innerHTML]="selectedAge"></span>
+    <input [(ngModel)]="selectedAge" (ngModelChange)="ageSelected($event)" type="range" min={{age.minAge}} max={{age.maxAge}} />
   </div>
   <hr>
   <div>
-    <md-select [(ngModel)]="selectedState" (ngModelChange)="haircolorSelected($event)" placeholder={{haircolors[0].type}}>
-      <md-option *ngFor="let haircolor of haircolors" [value]="haircolor.value">
+    <label>Height (cm)</label>
+    <span [innerHTML]="selectedHeight"></span>
+    <input [(ngModel)]="selectedHeight" (ngModelChange)="heightSelected($event)" type="range" min={{height.minHeight}} max={{height.maxHeight}} />
+  </div>
+  <hr>
+  <div>
+    <label>Haircolor</label>
+    <span></span>
+    <select [ngModel]="selectedHaircolor"  (ngModelChange)="haircolorSelected($event)">
+      <option *ngFor="let haircolor of haircolors" [value]="haircolor.value">
         {{haircolor.type}}
-      </md-option>
-    </md-select>
+      </option>
+    </select>
   </div>
   <hr>
   <div>
-    <button routerLink="/score" md-raised-button>Calculate</button>
+    <button routerLink="/score">Calculate</button>
   </div>
 </div>
