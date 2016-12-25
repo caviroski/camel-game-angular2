@@ -1,5 +1,17 @@
-<p>
-  picker works!
-
-  <button routerLink="/score" md-raised-button>Calculate</button>
-</p>
+<div>
+  <div>
+    <input [(ngModel)]="selectedState" (ngModelChange)="haircolorSelected($event)" type="range" min="14" max="70" />
+  </div>
+  <hr>
+  <div>
+    <md-select [(ngModel)]="selectedState" (ngModelChange)="haircolorSelected($event)" placeholder={{haircolors[0].type}}>
+      <md-option *ngFor="let haircolor of haircolors" [value]="haircolor.value">
+        {{haircolor.type}}
+      </md-option>
+    </md-select>
+  </div>
+  <hr>
+  <div>
+    <button routerLink="/score" md-raised-button>Calculate</button>
+  </div>
+</div>
