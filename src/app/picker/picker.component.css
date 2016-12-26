@@ -37,10 +37,19 @@ select {
     cursor: pointer;
 }
 
+.multi-choice-eyecolor {
+    width: 7%;
+}
+
 .multi-choice > label {
     padding-left: 0;
     display: inline;
     cursor: pointer;
+}
+
+.multi-choice-eyecolor > label {
+    width: 7%;
+    padding-left: 0;
 }
 
 .multi-choice > input {

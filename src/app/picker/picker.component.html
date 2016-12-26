@@ -31,6 +31,15 @@
   </div>
   <hr>
   <div>
+    <label>Eyecolor</label>
+    <span></span>
+    <span class="multi-choice-eyecolor" *ngFor="let eyecolor of eyecolors">
+        <input type="radio" id={{eyecolor.id}} name="eyecolor" [(ngModel)]="eyecolorSelected" [value]="eyecolor.value" [checked]="eyecolorSelected == eyecolor.value" />
+        <label for={{eyecolor.id}}>{{eyecolor.type}}</label>
+    </span>
+  </div>
+  <hr>
+  <div>
     <label>Beard</label>
     <span></span>
     <span class="multi-choice" *ngFor="let beard of beards" [class.selected]="beardSelected == beard.value">
@@ -49,6 +58,6 @@
   </div>
   <hr>
   <div class="calcualte-button">
-    <button routerLink="/score">Calculate</button>
+    <button routerLink="/score" (click)="calculate($event)">Calculate</button>
   </div>
 </div>

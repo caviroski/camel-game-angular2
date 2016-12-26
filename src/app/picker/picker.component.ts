@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-picker',
@@ -9,10 +10,10 @@ import { Component, OnInit } from '@angular/core';
 export class PickerComponent implements OnInit {
 
   private age:any = {minAge: 14, maxAge: 70};
-  private selectedAge:string = '20';
+  private selectedAge:number = 20;
 
   private height:any = {minHeight: 140, maxHeight: 220};
-  private selectedHeight:string = '175';
+  private selectedHeight:number = 175;
 
   private haircolors:Array<Object> = [ 
     {type: 'blonde', value: 1}, 
@@ -29,7 +30,15 @@ export class PickerComponent implements OnInit {
     {id: 'sHL', type: 'short', value: 3}, 
     {id: 'bHL', type: 'bald', value: 4}
   ];
-  private hairlengthSelected:number = 2;
+  private hairlengthSelected:number = 1;
+
+  private eyecolors:Array<Object> = [ 
+    {id: 'bEC', type: 'blue', value: 1}, 
+    {id: 'gEC', type: 'green', value: 2}, 
+    {id: 'brEC', type: 'brown', value: 3}, 
+    {id: 'grEC', type: 'grey', value: 4}
+  ];
+  private eyecolorSelected:number = 1;
 
   private beards:Array<Object> = [ 
     {id: 'sBE', type: 'small', value: 1}, 
@@ -37,16 +46,17 @@ export class PickerComponent implements OnInit {
     {id: 'gBE', type: 'goatee', value: 3}, 
     {id: 'bBE', type: 'big', value: 4}
   ];
-  private beardSelected:number = 2;
+  private beardSelected:number = 1;
 
   private bodys:Array<Object> = [ 
     {id: 'bBD', type: 'big', value: 1}, 
     {id: 'sBD', type: 'small', value: 2}, 
     {id: 'mBD', type: 'middle', value: 3}
   ];
-  private bodySelected:number = 2;
+  private bodySelected:number = 1;
 
-  constructor() { }
+  constructor(private appService:AppService) {
+  }
 
   ngOnInit() {
   }
@@ -63,8 +73,7 @@ export class PickerComponent implements OnInit {
    this.selectedHaircolor = value;
   }
 
-  private aaa(value:any){
-    console.log('aaaa ',value);
-    console.log('aaaa ',this.hairlengthSelected);
+  private calculate() {
+    this.appService.score = this.selectedAge + this.selectedHeight + this.selectedHaircolor + this.hairlengthSelected + this.eyecolorSelected + this.beardSelected + this.bodySelected;
   }
 }
