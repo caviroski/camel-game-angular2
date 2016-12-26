@@ -6,6 +6,10 @@
     text-align: left;
 }
 
+.picker-container > div.calcualte-button {
+    text-align: center;
+}
+
 label {
     padding-left: 10%;
     display: inline-block;
@@ -24,4 +28,25 @@ input[type="range"] {
 
 select {
     width: 50%;
+}
+
+.multi-choice {
+    width: 10%;
+    text-align: center;
+    padding-right: 0;
+    cursor: pointer;
+}
+
+.multi-choice > label {
+    padding-left: 0;
+    display: inline;
+    cursor: pointer;
+}
+
+.multi-choice > input {
+    display: none;
+}
+
+.selected {
+    background-color: #7788f3;
 }

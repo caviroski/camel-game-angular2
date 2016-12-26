@@ -23,6 +23,29 @@ export class PickerComponent implements OnInit {
   ];
   private selectedHaircolor:number = 1;
 
+  private hairlengths:Array<Object> = [ 
+    {id: 'lHL', type: 'long', value: 1}, 
+    {id: 'mHL', type: 'middle', value: 2}, 
+    {id: 'sHL', type: 'short', value: 3}, 
+    {id: 'bHL', type: 'bald', value: 4}
+  ];
+  private hairlengthSelected:number = 2;
+
+  private beards:Array<Object> = [ 
+    {id: 'sBE', type: 'small', value: 1}, 
+    {id: 'mBE', type: 'mustache', value: 2}, 
+    {id: 'gBE', type: 'goatee', value: 3}, 
+    {id: 'bBE', type: 'big', value: 4}
+  ];
+  private beardSelected:number = 2;
+
+  private bodys:Array<Object> = [ 
+    {id: 'bBD', type: 'big', value: 1}, 
+    {id: 'sBD', type: 'small', value: 2}, 
+    {id: 'mBD', type: 'middle', value: 3}
+  ];
+  private bodySelected:number = 2;
+
   constructor() { }
 
   ngOnInit() {
@@ -40,5 +63,8 @@ export class PickerComponent implements OnInit {
    this.selectedHaircolor = value;
   }
 
-
+  private aaa(value:any){
+    console.log('aaaa ',value);
+    console.log('aaaa ',this.hairlengthSelected);
+  }
 }

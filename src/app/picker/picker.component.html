@@ -14,7 +14,7 @@
   <div>
     <label>Haircolor</label>
     <span></span>
-    <select [(ngModel)]="selectedHaircolor"  (ngModelChange)="haircolorSelected($event)">
+    <select [(ngModel)]="selectedHaircolor" (ngModelChange)="haircolorSelected($event)">
       <option *ngFor="let haircolor of haircolors" [ngValue]="haircolor.value">
         {{haircolor.type}}
       </option>
@@ -22,6 +22,33 @@
   </div>
   <hr>
   <div>
+    <label>Hairlength</label>
+    <span></span>
+    <span class="multi-choice" *ngFor="let hairlength of hairlengths" [class.selected]="hairlengthSelected == hairlength.value">
+        <label for={{hairlength.id}}>{{hairlength.type}}</label>
+        <input type="radio" id={{hairlength.id}} name="hairlength" [(ngModel)]="hairlengthSelected" [value]="hairlength.value" [checked]="hairlengthSelected == hairlength.value" />
+    </span>
+  </div>
+  <hr>
+  <div>
+    <label>Beard</label>
+    <span></span>
+    <span class="multi-choice" *ngFor="let beard of beards" [class.selected]="beardSelected == beard.value">
+        <label for={{beard.id}}>{{beard.type}}</label>
+        <input type="radio" id={{beard.id}} name="beard" [(ngModel)]="beardSelected" [value]="beard.value" [checked]="beardSelected == beard.value" />
+    </span>
+  </div>
+  <hr>
+  <div>
+    <label>Body</label>
+    <span></span>
+    <span class="multi-choice" *ngFor="let body of bodys" [class.selected]="bodySelected == body.value">
+        <label for={{body.id}}>{{body.type}}</label>
+        <input type="radio" id={{body.id}} name="body" [(ngModel)]="bodySelected" [value]="body.value" [checked]="bodySelected == body.value" />
+    </span>
+  </div>
+  <hr>
+  <div class="calcualte-button">
     <button routerLink="/score">Calculate</button>
   </div>
 </div>
