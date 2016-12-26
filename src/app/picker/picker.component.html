@@ -14,8 +14,8 @@
   <div>
     <label>Haircolor</label>
     <span></span>
-    <select [ngModel]="selectedHaircolor"  (ngModelChange)="haircolorSelected($event)">
-      <option *ngFor="let haircolor of haircolors" [value]="haircolor.value">
+    <select [(ngModel)]="selectedHaircolor"  (ngModelChange)="haircolorSelected($event)">
+      <option *ngFor="let haircolor of haircolors" [ngValue]="haircolor.value">
         {{haircolor.type}}
       </option>
     </select>

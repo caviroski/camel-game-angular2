@@ -8,19 +8,20 @@ import { Component, OnInit } from '@angular/core';
 
 export class PickerComponent implements OnInit {
 
-  private age: any = {minAge: 14, maxAge: 70};
-  private selectedAge: string = '20';
+  private age:any = {minAge: 14, maxAge: 70};
+  private selectedAge:string = '20';
 
-  private height: any = {minHeight: 140, maxHeight: 220};
-  private selectedHeight: string = '175';
+  private height:any = {minHeight: 140, maxHeight: 220};
+  private selectedHeight:string = '175';
 
-  private haircolors: Array<any> = [ 
+  private haircolors:Array<Object> = [ 
     {type: 'blonde', value: 1}, 
     {type: 'brown', value: 2}, 
     {type: 'black', value: 3}, 
     {type: 'red', value: 4}, 
     {type: 'grey', value: 5}
   ];
+  private selectedHaircolor:number = 1;
 
   constructor() { }
 
@@ -36,7 +37,7 @@ export class PickerComponent implements OnInit {
   }
 
   private haircolorSelected(value: any) {
-   console.log('Selected value is: ', value);
+   this.selectedHaircolor = value;
   }
 
 
