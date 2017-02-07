@@ -1,0 +1,6 @@
+<div>
+    <label>{{slider.title}}</label>
+    <span [innerHTML]="slider.selectedDefaultValue"></span>
+    <input [(ngModel)]="slider.selectedDefaultValue" (ngModelChange)="selectedValue($event)" type="range" min={{slider.min}} max={{slider.max}} />
+    <hr>
+</div>

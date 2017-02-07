@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+
 import { AppService } from '../app.service';
 
 @Component({
@@ -6,6 +7,7 @@ import { AppService } from '../app.service';
   templateUrl: './score.component.html',
   styleUrls: ['./score.component.css']
 })
+
 export class ScoreComponent implements OnInit {
 
   private dScore:number = 0;

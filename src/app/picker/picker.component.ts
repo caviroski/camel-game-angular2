@@ -1,19 +1,31 @@
 import { Component, OnInit } from '@angular/core';
+
 import { AppService } from '../app.service';
+import { Slider } from '../modules/Slider';
 
 @Component({
   selector: 'app-picker',
   templateUrl: './picker.component.html',
-  styleUrls: ['./picker.component.css']
+  styleUrls: ['./picker.component.css'],
+  providers: [AppService]
 })
 
 export class PickerComponent implements OnInit {
 
-  private age:any = {minAge: 14, maxAge: 70};
-  private selectedAge:number = 20;
-
-  private height:any = {minHeight: 140, maxHeight: 220};
-  private selectedHeight:number = 175;
+  private sliders:Slider[] = [
+    {
+      "title": "Age",
+      "selectedDefaultValue": 20,
+      "min": 14,
+      "max": 70
+    },
+    {
+      "title": "Height (cm)",
+      "selectedDefaultValue": 175,
+      "min": 140,
+      "max": 220
+    }
+  ];
 
   private haircolors:Array<Object> = [ 
     {type: 'blonde', value: 1}, 
@@ -61,19 +73,11 @@ export class PickerComponent implements OnInit {
   ngOnInit() {
   }
 
-  private ageSelected(value: any) {
-    this.selectedAge = value;
-  }
-
-  private heightSelected(value: any) {
-    this.selectedHeight = value;
-  }
-
   private haircolorSelected(value: any) {
    this.selectedHaircolor = value;
   }
 
   private calculate() {
-    this.appService.score = this.selectedAge + this.selectedHeight + this.selectedHaircolor + this.hairlengthSelected + this.eyecolorSelected + this.beardSelected + this.bodySelected;
+    this.appService.score = this.selectedHaircolor + this.hairlengthSelected + this.eyecolorSelected + this.beardSelected + this.bodySelected;
   }
 }

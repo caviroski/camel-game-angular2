@@ -1,0 +1,19 @@
+div {
+    text-align: left;
+}
+
+label {
+    padding-left: 10%;
+    display: inline-block;
+    width: 15%;
+}
+
+span {
+    padding-right: 1%;
+    display: inline-block;
+    width: 3%;
+}
+
+input {
+    width: 50%;
+}

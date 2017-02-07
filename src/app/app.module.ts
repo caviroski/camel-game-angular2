@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { PickerComponent } from './picker/picker.component';
 import { ScoreComponent } from './score/score.component';
 import { PathNotFoundComponent } from './path-not-found/path-not-found.component';
+import { PickerModule } from './picker/picker.module';
 
 const appRoutes: Routes = [
   { path: 'picker', component: PickerComponent },
@@ -20,7 +20,6 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    PickerComponent,
     ScoreComponent,
     PathNotFoundComponent
   ],
@@ -28,8 +27,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule.forRoot(),
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    PickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,16 +1,5 @@
 <div class="picker-container">
-  <div>
-    <label>Age</label>
-    <span [innerHTML]="selectedAge"></span>
-    <input [(ngModel)]="selectedAge" (ngModelChange)="ageSelected($event)" type="range" min={{age.minAge}} max={{age.maxAge}} />
-  </div>
-  <hr>
-  <div>
-    <label>Height (cm)</label>
-    <span [innerHTML]="selectedHeight"></span>
-    <input [(ngModel)]="selectedHeight" (ngModelChange)="heightSelected($event)" type="range" min={{height.minHeight}} max={{height.maxHeight}} />
-  </div>
-  <hr>
+  <app-slider *ngFor="let slider of sliders" [slider]="slider"></app-slider>
   <div>
     <label>Haircolor</label>
     <span></span>
